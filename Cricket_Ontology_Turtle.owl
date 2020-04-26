@@ -1,0 +1,1129 @@
+@prefix : <http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix untitled-ontology-3: <http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#> .
+@base <http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3> .
+
+<http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#hasAwardName
+untitled-ontology-3:hasAwardName rdf:type owl:ObjectProperty ;
+                                 rdfs:domain [ rdf:type owl:Class ;
+                                               owl:unionOf ( untitled-ontology-3:Match
+                                                             untitled-ontology-3:Tournament
+                                                           )
+                                             ] ;
+                                 rdfs:range untitled-ontology-3:Awards .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#hasBeenAwarded
+untitled-ontology-3:hasBeenAwarded rdf:type owl:ObjectProperty ,
+                                            owl:FunctionalProperty ;
+                                   rdfs:domain untitled-ontology-3:Player ;
+                                   rdfs:range untitled-ontology-3:Awards .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#hasCaptain
+untitled-ontology-3:hasCaptain rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf untitled-ontology-3:isCaptainOf ;
+                               rdf:type owl:InverseFunctionalProperty ;
+                               rdfs:domain untitled-ontology-3:Team ;
+                               rdfs:range untitled-ontology-3:Player .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#hasCoach
+untitled-ontology-3:hasCoach rdf:type owl:ObjectProperty ;
+                             owl:inverseOf untitled-ontology-3:isCoachOf ;
+                             rdf:type owl:InverseFunctionalProperty ;
+                             rdfs:domain untitled-ontology-3:Coach ,
+                                         untitled-ontology-3:Team .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#hasFranchisee
+untitled-ontology-3:hasFranchisee rdf:type owl:ObjectProperty ,
+                                           owl:FunctionalProperty ;
+                                  rdfs:domain untitled-ontology-3:Team ;
+                                  rdfs:range untitled-ontology-3:Franchisees .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#hasMatchWinner
+untitled-ontology-3:hasMatchWinner rdf:type owl:ObjectProperty ,
+                                            owl:FunctionalProperty ;
+                                   rdfs:domain untitled-ontology-3:Match ;
+                                   rdfs:range untitled-ontology-3:Team .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#hasMatches
+untitled-ontology-3:hasMatches rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf owl:topObjectProperty ;
+                               rdfs:domain untitled-ontology-3:Tournament ;
+                               rdfs:range untitled-ontology-3:Match .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#hasNation
+untitled-ontology-3:hasNation rdf:type owl:ObjectProperty ,
+                                       owl:FunctionalProperty ;
+                              rdfs:domain untitled-ontology-3:Team ;
+                              rdfs:range untitled-ontology-3:Countries .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#hasParticipatingTeams
+untitled-ontology-3:hasParticipatingTeams rdf:type owl:ObjectProperty ;
+                                          rdfs:domain untitled-ontology-3:Tournament ;
+                                          rdfs:range untitled-ontology-3:Team .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#hasPlayer
+untitled-ontology-3:hasPlayer rdf:type owl:ObjectProperty ;
+                              owl:inverseOf untitled-ontology-3:isPlayerOf ;
+                              rdfs:domain untitled-ontology-3:Squad ,
+                                          untitled-ontology-3:Team ;
+                              rdfs:range untitled-ontology-3:Player .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#hasSkills
+untitled-ontology-3:hasSkills rdf:type owl:ObjectProperty ;
+                              rdfs:domain untitled-ontology-3:Player ;
+                              rdfs:range untitled-ontology-3:Skills .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#hasTeam
+untitled-ontology-3:hasTeam rdf:type owl:ObjectProperty ;
+                            rdfs:domain untitled-ontology-3:Player ;
+                            rdfs:range untitled-ontology-3:Team .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#hasTeamMate
+untitled-ontology-3:hasTeamMate rdf:type owl:ObjectProperty ,
+                                         owl:SymmetricProperty ;
+                                rdfs:domain untitled-ontology-3:Player ;
+                                rdfs:range untitled-ontology-3:Player .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#isAwardedTo
+untitled-ontology-3:isAwardedTo rdf:type owl:ObjectProperty ;
+                                rdfs:domain untitled-ontology-3:Awards ;
+                                rdfs:range untitled-ontology-3:Player .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#isCaptainOf
+untitled-ontology-3:isCaptainOf rdf:type owl:ObjectProperty ;
+                                rdfs:subPropertyOf untitled-ontology-3:hasCaptain ;
+                                rdfs:domain untitled-ontology-3:Player ;
+                                rdfs:range untitled-ontology-3:Team .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#isCoachOf
+untitled-ontology-3:isCoachOf rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf owl:topObjectProperty ;
+                              rdf:type owl:InverseFunctionalProperty .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#isPartOfTheSquad
+untitled-ontology-3:isPartOfTheSquad rdf:type owl:ObjectProperty ;
+                                     rdfs:domain untitled-ontology-3:Player ;
+                                     rdfs:range untitled-ontology-3:Squad .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#isPlayerOf
+untitled-ontology-3:isPlayerOf rdf:type owl:ObjectProperty ;
+                               rdfs:domain untitled-ontology-3:Player ;
+                               rdfs:range untitled-ontology-3:Team .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#isSeniorOf
+untitled-ontology-3:isSeniorOf rdf:type owl:ObjectProperty ,
+                                        owl:TransitiveProperty ;
+                               rdfs:domain untitled-ontology-3:Player ;
+                               rdfs:range untitled-ontology-3:Player .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#hasAge
+untitled-ontology-3:hasAge rdf:type owl:DatatypeProperty ;
+                           rdfs:domain untitled-ontology-3:PersonInvolved ;
+                           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#hasFullName
+untitled-ontology-3:hasFullName rdf:type owl:DatatypeProperty ;
+                                rdfs:domain untitled-ontology-3:PersonInvolved ;
+                                rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#hasMatchDate
+untitled-ontology-3:hasMatchDate rdf:type owl:DatatypeProperty ,
+                                          owl:FunctionalProperty ;
+                                 rdfs:domain untitled-ontology-3:Match ;
+                                 rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#hasTeamName
+untitled-ontology-3:hasTeamName rdf:type owl:DatatypeProperty ,
+                                         owl:FunctionalProperty ;
+                                rdfs:domain untitled-ontology-3:Team ;
+                                rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#hasYearValue
+untitled-ontology-3:hasYearValue rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain untitled-ontology-3:Year ;
+                                 rdfs:range xsd:int .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#AdhocTeam
+untitled-ontology-3:AdhocTeam rdf:type owl:Class ;
+                              rdfs:subClassOf untitled-ontology-3:Team .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#AllRounder
+untitled-ontology-3:AllRounder rdf:type owl:Class ;
+                               owl:equivalentClass [ owl:intersectionOf ( untitled-ontology-3:Player
+                                                                          [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                   owl:onProperty untitled-ontology-3:hasSkills ;
+                                                                                                   owl:someValuesFrom untitled-ontology-3:BattingSkills
+                                                                                                 ]
+                                                                                                 [ rdf:type owl:Restriction ;
+                                                                                                   owl:onProperty untitled-ontology-3:hasSkills ;
+                                                                                                   owl:someValuesFrom untitled-ontology-3:BowlingSkills
+                                                                                                 ]
+                                                                                               ) ;
+                                                                            rdf:type owl:Class
+                                                                          ]
+                                                                        ) ;
+                                                     rdf:type owl:Class
+                                                   ] .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#AnnualAwards
+untitled-ontology-3:AnnualAwards rdf:type owl:Class ;
+                                 rdfs:subClassOf untitled-ontology-3:Awards .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Audience
+untitled-ontology-3:Audience rdf:type owl:Class ;
+                             rdfs:subClassOf untitled-ontology-3:NonPlayer .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#AustralianCricketTeam
+untitled-ontology-3:AustralianCricketTeam rdf:type owl:Class ;
+                                          rdfs:subClassOf untitled-ontology-3:NationalTeam .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#AustralianFranchiseeTeam
+untitled-ontology-3:AustralianFranchiseeTeam rdf:type owl:Class ;
+                                             owl:equivalentClass [ owl:intersectionOf ( untitled-ontology-3:FranchiseeTeam
+                                                                                        [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                                 owl:onProperty untitled-ontology-3:hasFranchisee ;
+                                                                                                                 owl:someValuesFrom untitled-ontology-3:Franchisees
+                                                                                                               ]
+                                                                                                               [ rdf:type owl:Restriction ;
+                                                                                                                 owl:onProperty untitled-ontology-3:hasNation ;
+                                                                                                                 owl:hasValue untitled-ontology-3:Australia
+                                                                                                               ]
+                                                                                                             ) ;
+                                                                                          rdf:type owl:Class
+                                                                                        ]
+                                                                                      ) ;
+                                                                   rdf:type owl:Class
+                                                                 ] ;
+                                             owl:disjointWith untitled-ontology-3:IndianFranchiseeTeam .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Awards
+untitled-ontology-3:Awards rdf:type owl:Class ;
+                           rdfs:subClassOf untitled-ontology-3:Cricket .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Badminton
+untitled-ontology-3:Badminton rdf:type owl:Class ;
+                              rdfs:subClassOf untitled-ontology-3:IndoorSports .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#BasketBall
+untitled-ontology-3:BasketBall rdf:type owl:Class ;
+                               rdfs:subClassOf untitled-ontology-3:IndoorSports .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Batsman
+untitled-ontology-3:Batsman rdf:type owl:Class ;
+                            owl:equivalentClass [ owl:intersectionOf ( untitled-ontology-3:Player
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty untitled-ontology-3:hasSkills ;
+                                                                         owl:allValuesFrom untitled-ontology-3:BattingSkills
+                                                                       ]
+                                                                     ) ;
+                                                  rdf:type owl:Class
+                                                ] .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#BattingAllrounder
+untitled-ontology-3:BattingAllrounder rdf:type owl:Class ;
+                                      rdfs:subClassOf untitled-ontology-3:AllRounder ;
+                                      owl:disjointWith untitled-ontology-3:BowlingAllrounder .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#BattingSkills
+untitled-ontology-3:BattingSkills rdf:type owl:Class ;
+                                  rdfs:subClassOf untitled-ontology-3:CricketSkills .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#BestPlayerOfTheYear
+untitled-ontology-3:BestPlayerOfTheYear rdf:type owl:Class ;
+                                        rdfs:subClassOf untitled-ontology-3:AnnualAwards .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#BilateralSeries
+untitled-ontology-3:BilateralSeries rdf:type owl:Class ;
+                                    rdfs:subClassOf untitled-ontology-3:Tournament .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Bowler
+untitled-ontology-3:Bowler rdf:type owl:Class ;
+                           owl:equivalentClass [ owl:intersectionOf ( untitled-ontology-3:Player
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty untitled-ontology-3:hasSkills ;
+                                                                        owl:allValuesFrom untitled-ontology-3:BowlingSkills
+                                                                      ]
+                                                                    ) ;
+                                                 rdf:type owl:Class
+                                               ] .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#BowlingAllrounder
+untitled-ontology-3:BowlingAllrounder rdf:type owl:Class ;
+                                      rdfs:subClassOf untitled-ontology-3:AllRounder .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#BowlingSkills
+untitled-ontology-3:BowlingSkills rdf:type owl:Class ;
+                                  rdfs:subClassOf untitled-ontology-3:CricketSkills .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Boxing
+untitled-ontology-3:Boxing rdf:type owl:Class ;
+                           rdfs:subClassOf untitled-ontology-3:IndoorSports .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#ChampionsTrophy
+untitled-ontology-3:ChampionsTrophy rdf:type owl:Class ;
+                                    rdfs:subClassOf untitled-ontology-3:Tournament .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Chess
+untitled-ontology-3:Chess rdf:type owl:Class ;
+                          rdfs:subClassOf untitled-ontology-3:IndoorSports .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Coach
+untitled-ontology-3:Coach rdf:type owl:Class ;
+                          rdfs:subClassOf untitled-ontology-3:NonPlayer .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Commentator
+untitled-ontology-3:Commentator rdf:type owl:Class ;
+                                rdfs:subClassOf untitled-ontology-3:NonPlayer .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Countries
+untitled-ontology-3:Countries rdf:type owl:Class ;
+                              owl:equivalentClass [ owl:intersectionOf ( untitled-ontology-3:DomainThing
+                                                                         [ rdf:type owl:Class ;
+                                                                           owl:oneOf ( untitled-ontology-3:Afghanistan
+                                                                                       untitled-ontology-3:Australia
+                                                                                       untitled-ontology-3:Canada
+                                                                                       untitled-ontology-3:England
+                                                                                       untitled-ontology-3:India
+                                                                                       untitled-ontology-3:NewZealand
+                                                                                       untitled-ontology-3:Pakistan
+                                                                                       untitled-ontology-3:SouthAfrica
+                                                                                       untitled-ontology-3:SriLanka
+                                                                                     )
+                                                                         ]
+                                                                       ) ;
+                                                    rdf:type owl:Class
+                                                  ] .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Cricket
+untitled-ontology-3:Cricket rdf:type owl:Class ;
+                            rdfs:subClassOf untitled-ontology-3:OutdoorSports .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#CricketSkills
+untitled-ontology-3:CricketSkills rdf:type owl:Class ;
+                                  rdfs:subClassOf untitled-ontology-3:Skills .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#DomainThing
+untitled-ontology-3:DomainThing rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#DometicLeague
+untitled-ontology-3:DometicLeague rdf:type owl:Class ;
+                                  rdfs:subClassOf untitled-ontology-3:Tournament .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#FastBowler
+untitled-ontology-3:FastBowler rdf:type owl:Class ;
+                               rdfs:subClassOf untitled-ontology-3:Bowler .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#FieldingSkills
+untitled-ontology-3:FieldingSkills rdf:type owl:Class ;
+                                   rdfs:subClassOf untitled-ontology-3:CricketSkills .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Finisher
+untitled-ontology-3:Finisher rdf:type owl:Class ;
+                             rdfs:subClassOf untitled-ontology-3:Batsman .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#FirstUmpire
+untitled-ontology-3:FirstUmpire rdf:type owl:Class ;
+                                rdfs:subClassOf untitled-ontology-3:Umpire .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Floater
+untitled-ontology-3:Floater rdf:type owl:Class ;
+                            rdfs:subClassOf untitled-ontology-3:Batsman .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#FranchiseeTeam
+untitled-ontology-3:FranchiseeTeam rdf:type owl:Class ;
+                                   rdfs:subClassOf untitled-ontology-3:Team .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Franchisees
+untitled-ontology-3:Franchisees rdf:type owl:Class ;
+                                rdfs:subClassOf untitled-ontology-3:Cricket .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#FriendlyTournament
+untitled-ontology-3:FriendlyTournament rdf:type owl:Class ;
+                                       rdfs:subClassOf untitled-ontology-3:Tournament .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#GroundStaff
+untitled-ontology-3:GroundStaff rdf:type owl:Class ;
+                                rdfs:subClassOf untitled-ontology-3:NonPlayer .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#IndianCricketTeam
+untitled-ontology-3:IndianCricketTeam rdf:type owl:Class ;
+                                      rdfs:subClassOf untitled-ontology-3:NationalTeam .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#IndianFranchiseeTeam
+untitled-ontology-3:IndianFranchiseeTeam rdf:type owl:Class ;
+                                         owl:equivalentClass [ owl:intersectionOf ( untitled-ontology-3:FranchiseeTeam
+                                                                                    [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                             owl:onProperty untitled-ontology-3:hasFranchisee ;
+                                                                                                             owl:someValuesFrom untitled-ontology-3:Franchisees
+                                                                                                           ]
+                                                                                                           [ rdf:type owl:Restriction ;
+                                                                                                             owl:onProperty untitled-ontology-3:hasNation ;
+                                                                                                             owl:hasValue untitled-ontology-3:India
+                                                                                                           ]
+                                                                                                         ) ;
+                                                                                      rdf:type owl:Class
+                                                                                    ]
+                                                                                  ) ;
+                                                               rdf:type owl:Class
+                                                             ] .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#IndoorSports
+untitled-ontology-3:IndoorSports rdf:type owl:Class ;
+                                 rdfs:subClassOf untitled-ontology-3:Sports ;
+                                 owl:disjointWith untitled-ontology-3:OutdoorSports .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#ManOfMatch
+untitled-ontology-3:ManOfMatch rdf:type owl:Class ;
+                               rdfs:subClassOf untitled-ontology-3:MatchAwards .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#ManOfTheMatch
+untitled-ontology-3:ManOfTheMatch rdf:type owl:Class ;
+                                  rdfs:subClassOf untitled-ontology-3:MatchAwards .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Match
+untitled-ontology-3:Match rdf:type owl:Class ;
+                          owl:equivalentClass [ owl:intersectionOf ( untitled-ontology-3:Cricket
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty untitled-ontology-3:hasParticipatingTeams ;
+                                                                       owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                                                       owl:onClass untitled-ontology-3:Team
+                                                                     ]
+                                                                   ) ;
+                                                rdf:type owl:Class
+                                              ] ;
+                          rdfs:comment """Match - it is a class that represents a Cricket Game.
+It involves 2 teams. Played in a venue.
+Has Match Result ans is played  in one of the match types.""" .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#MatchAwards
+untitled-ontology-3:MatchAwards rdf:type owl:Class ;
+                                rdfs:subClassOf untitled-ontology-3:Awards .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#MatchReferee
+untitled-ontology-3:MatchReferee rdf:type owl:Class ;
+                                 rdfs:subClassOf untitled-ontology-3:NonPlayer .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#MiddleOrder
+untitled-ontology-3:MiddleOrder rdf:type owl:Class ;
+                                rdfs:subClassOf untitled-ontology-3:Batsman .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#MultilateralSeries
+untitled-ontology-3:MultilateralSeries rdf:type owl:Class ;
+                                       rdfs:subClassOf untitled-ontology-3:Tournament .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#NationalTeam
+untitled-ontology-3:NationalTeam rdf:type owl:Class ;
+                                 rdfs:subClassOf untitled-ontology-3:Team .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#NonPlayer
+untitled-ontology-3:NonPlayer rdf:type owl:Class ;
+                              rdfs:subClassOf untitled-ontology-3:PersonInvolved ;
+                              owl:disjointWith untitled-ontology-3:Player .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#ODIMatch
+untitled-ontology-3:ODIMatch rdf:type owl:Class ;
+                             rdfs:subClassOf untitled-ontology-3:Match .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Opener
+untitled-ontology-3:Opener rdf:type owl:Class ;
+                           rdfs:subClassOf untitled-ontology-3:Batsman .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#OutdoorSports
+untitled-ontology-3:OutdoorSports rdf:type owl:Class ;
+                                  rdfs:subClassOf untitled-ontology-3:Sports .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#PersonInvolved
+untitled-ontology-3:PersonInvolved rdf:type owl:Class ;
+                                   rdfs:subClassOf untitled-ontology-3:Cricket .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Player
+untitled-ontology-3:Player rdf:type owl:Class ;
+                           rdfs:subClassOf untitled-ontology-3:PersonInvolved .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#PlayerOfTheTournament
+untitled-ontology-3:PlayerOfTheTournament rdf:type owl:Class ;
+                                          rdfs:subClassOf untitled-ontology-3:TournamentAwards .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#PlayerOfTheYear
+untitled-ontology-3:PlayerOfTheYear rdf:type owl:Class ;
+                                    rdfs:subClassOf untitled-ontology-3:AnnualAwards .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#PlayerOfTournament
+untitled-ontology-3:PlayerOfTournament rdf:type owl:Class ;
+                                       rdfs:subClassOf untitled-ontology-3:TournamentAwards .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#SecondUmpire
+untitled-ontology-3:SecondUmpire rdf:type owl:Class ;
+                                 rdfs:subClassOf untitled-ontology-3:Umpire .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Skills
+untitled-ontology-3:Skills rdf:type owl:Class ;
+                           rdfs:subClassOf untitled-ontology-3:Sports .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#SlowMediumPacer
+untitled-ontology-3:SlowMediumPacer rdf:type owl:Class ;
+                                    rdfs:subClassOf untitled-ontology-3:Bowler .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Soccer
+untitled-ontology-3:Soccer rdf:type owl:Class ;
+                           rdfs:subClassOf untitled-ontology-3:OutdoorSports .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#SpinBowler
+untitled-ontology-3:SpinBowler rdf:type owl:Class ;
+                               rdfs:subClassOf untitled-ontology-3:Bowler .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Sports
+untitled-ontology-3:Sports rdf:type owl:Class ;
+                           rdfs:subClassOf untitled-ontology-3:DomainThing .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Squad
+untitled-ontology-3:Squad rdf:type owl:Class ;
+                          owl:equivalentClass [ owl:intersectionOf ( untitled-ontology-3:Cricket
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty untitled-ontology-3:hasPlayer ;
+                                                                       owl:maxQualifiedCardinality "15"^^xsd:nonNegativeInteger ;
+                                                                       owl:onClass untitled-ontology-3:Player
+                                                                     ]
+                                                                   ) ;
+                                                rdf:type owl:Class
+                                              ] ;
+                          rdfs:comment "Every team may hav a squad which include the the playing 11 and the reserved players" .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Team
+untitled-ontology-3:Team rdf:type owl:Class ;
+                         rdfs:subClassOf untitled-ontology-3:Cricket .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#TeamSupportStaff
+untitled-ontology-3:TeamSupportStaff rdf:type owl:Class ;
+                                     rdfs:subClassOf untitled-ontology-3:NonPlayer .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Tennis
+untitled-ontology-3:Tennis rdf:type owl:Class ;
+                           rdfs:subClassOf untitled-ontology-3:OutdoorSports .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#TestMatch
+untitled-ontology-3:TestMatch rdf:type owl:Class ;
+                              rdfs:subClassOf untitled-ontology-3:Match .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#ThirdUmpire
+untitled-ontology-3:ThirdUmpire rdf:type owl:Class ;
+                                rdfs:subClassOf untitled-ontology-3:Umpire .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Tournament
+untitled-ontology-3:Tournament rdf:type owl:Class ;
+                               owl:equivalentClass [ owl:intersectionOf ( untitled-ontology-3:Cricket
+                                                                          [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty untitled-ontology-3:hasParticipatingTeams ;
+                                                                            owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                                                            owl:onClass untitled-ontology-3:Team
+                                                                          ]
+                                                                        ) ;
+                                                     rdf:type owl:Class
+                                                   ] .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#TournamentAwards
+untitled-ontology-3:TournamentAwards rdf:type owl:Class ;
+                                     rdfs:subClassOf untitled-ontology-3:Awards .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#TrackEvents
+untitled-ontology-3:TrackEvents rdf:type owl:Class ;
+                                rdfs:subClassOf untitled-ontology-3:OutdoorSports .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#TrilateralSeries
+untitled-ontology-3:TrilateralSeries rdf:type owl:Class ;
+                                     rdfs:subClassOf untitled-ontology-3:Tournament .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Twenty20Match
+untitled-ontology-3:Twenty20Match rdf:type owl:Class ;
+                                  rdfs:subClassOf untitled-ontology-3:Match .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Umpire
+untitled-ontology-3:Umpire rdf:type owl:Class ;
+                           rdfs:subClassOf untitled-ontology-3:NonPlayer .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#WicketKeeper
+untitled-ontology-3:WicketKeeper rdf:type owl:Class ;
+                                 owl:equivalentClass [ owl:intersectionOf ( untitled-ontology-3:Player
+                                                                            [ rdf:type owl:Restriction ;
+                                                                              owl:onProperty untitled-ontology-3:hasSkills ;
+                                                                              owl:someValuesFrom untitled-ontology-3:WicketKeepingSkills
+                                                                            ]
+                                                                          ) ;
+                                                       rdf:type owl:Class
+                                                     ] .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#WicketKeepingSkills
+untitled-ontology-3:WicketKeepingSkills rdf:type owl:Class ;
+                                        rdfs:subClassOf untitled-ontology-3:CricketSkills .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#WorldCup
+untitled-ontology-3:WorldCup rdf:type owl:Class ;
+                             rdfs:subClassOf untitled-ontology-3:Tournament .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Year
+untitled-ontology-3:Year rdf:type owl:Class ;
+                         rdfs:subClassOf untitled-ontology-3:DomainThing .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Afghanistan
+untitled-ontology-3:Afghanistan rdf:type owl:NamedIndividual ,
+                                         untitled-ontology-3:Countries ;
+                                rdfs:comment "A Country" .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Australia
+untitled-ontology-3:Australia rdf:type owl:NamedIndividual ,
+                                       untitled-ontology-3:Countries ;
+                              rdfs:comment "A Country" .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#AustralianCricketSquad
+untitled-ontology-3:AustralianCricketSquad rdf:type owl:NamedIndividual ,
+                                                    untitled-ontology-3:Squad .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#AustralianCricketTeam
+untitled-ontology-3:AustralianCricketTeam rdf:type owl:NamedIndividual ,
+                                                   untitled-ontology-3:Team ;
+                                          untitled-ontology-3:hasNation untitled-ontology-3:Australia .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Bhuvi
+untitled-ontology-3:Bhuvi rdf:type owl:NamedIndividual ,
+                                   untitled-ontology-3:SlowMediumPacer ;
+                          untitled-ontology-3:hasTeam untitled-ontology-3:ChennaiSuperKings ,
+                                                      untitled-ontology-3:IndianCricketTeam ;
+                          untitled-ontology-3:hasAge "25"^^xsd:string ;
+                          untitled-ontology-3:hasFullName "Bhuvaneshwar Kumar"^^xsd:string .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Bumrah
+untitled-ontology-3:Bumrah rdf:type owl:NamedIndividual ,
+                                    untitled-ontology-3:FastBowler ;
+                           untitled-ontology-3:hasTeam untitled-ontology-3:IndianCricketTeam ,
+                                                       untitled-ontology-3:SunRisersHyderabad ;
+                           untitled-ontology-3:hasAge "24"^^xsd:string ;
+                           untitled-ontology-3:hasFullName "Jasprit Bumrah"^^xsd:string .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Canada
+untitled-ontology-3:Canada rdf:type owl:NamedIndividual ,
+                                    untitled-ontology-3:Countries ;
+                           rdfs:comment "A Country" .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Chahal
+untitled-ontology-3:Chahal rdf:type owl:NamedIndividual ,
+                                    untitled-ontology-3:SpinBowler ;
+                           untitled-ontology-3:hasTeam untitled-ontology-3:IndianCricketTeam ,
+                                                       untitled-ontology-3:SunRisersHyderabad ;
+                           untitled-ontology-3:hasAge "25"^^xsd:string ;
+                           untitled-ontology-3:hasFullName "Yuzvendra chahal"^^xsd:string .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#ChennaiSuperKings
+untitled-ontology-3:ChennaiSuperKings rdf:type owl:NamedIndividual ,
+                                               untitled-ontology-3:FranchiseeTeam ;
+                                      untitled-ontology-3:hasCaptain untitled-ontology-3:MSDhoni ;
+                                      untitled-ontology-3:hasFranchisee untitled-ontology-3:Chennai_Franchisee ;
+                                      untitled-ontology-3:hasNation untitled-ontology-3:India ;
+                                      untitled-ontology-3:hasTeamName "\" Chennai Super Kings\""^^xsd:string .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Chennai_Franchisee
+untitled-ontology-3:Chennai_Franchisee rdf:type owl:NamedIndividual ,
+                                                untitled-ontology-3:Franchisees .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Darren_Lehmann
+untitled-ontology-3:Darren_Lehmann rdf:type owl:NamedIndividual ;
+                                   untitled-ontology-3:isCoachOf untitled-ontology-3:AustralianCricketTeam .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Dhawan
+untitled-ontology-3:Dhawan rdf:type owl:NamedIndividual ,
+                                    untitled-ontology-3:Opener ;
+                           untitled-ontology-3:hasTeam untitled-ontology-3:ChennaiSuperKings ,
+                                                       untitled-ontology-3:IndianCricketTeam ;
+                           untitled-ontology-3:hasAge "30"^^xsd:string ;
+                           untitled-ontology-3:hasFullName "Shikhar Dhawan"^^xsd:string .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#England
+untitled-ontology-3:England rdf:type owl:NamedIndividual ,
+                                     untitled-ontology-3:Countries ;
+                            rdfs:comment "A Country" .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Finch
+untitled-ontology-3:Finch rdf:type owl:NamedIndividual ,
+                                   untitled-ontology-3:Opener ;
+                          untitled-ontology-3:hasTeam untitled-ontology-3:AustralianCricketTeam ,
+                                                      untitled-ontology-3:ChennaiSuperKings ;
+                          untitled-ontology-3:hasAge "33"^^xsd:string ;
+                          untitled-ontology-3:hasFullName "Aaron Finch"^^xsd:string .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Hazlewood
+untitled-ontology-3:Hazlewood rdf:type owl:NamedIndividual ,
+                                       untitled-ontology-3:SlowMediumPacer ;
+                              untitled-ontology-3:hasTeam untitled-ontology-3:AustralianCricketTeam ,
+                                                          untitled-ontology-3:SunRisersHyderabad ;
+                              untitled-ontology-3:hasAge "28"^^xsd:string ;
+                              untitled-ontology-3:hasFullName "Josh HazleWoodf"^^xsd:string .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Hyderabad_Franchisee
+untitled-ontology-3:Hyderabad_Franchisee rdf:type owl:NamedIndividual ,
+                                                  untitled-ontology-3:Franchisees .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#India
+untitled-ontology-3:India rdf:type owl:NamedIndividual ,
+                                   untitled-ontology-3:Countries ;
+                          rdfs:comment "A Country" .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#IndianCricketSquad
+untitled-ontology-3:IndianCricketSquad rdf:type owl:NamedIndividual ,
+                                                untitled-ontology-3:Squad .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#IndianCricketTeam
+untitled-ontology-3:IndianCricketTeam rdf:type owl:NamedIndividual ,
+                                               untitled-ontology-3:Team .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Lyon
+untitled-ontology-3:Lyon rdf:type owl:NamedIndividual ,
+                                  untitled-ontology-3:SpinBowler ;
+                         untitled-ontology-3:hasTeam untitled-ontology-3:AustralianCricketTeam ,
+                                                     untitled-ontology-3:ChennaiSuperKings ;
+                         untitled-ontology-3:hasAge "30"^^xsd:string ,
+                                                    "Nathon Lyon"^^xsd:string .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#MSDhoni
+untitled-ontology-3:MSDhoni rdf:type owl:NamedIndividual ,
+                                     untitled-ontology-3:WicketKeeper ;
+                            untitled-ontology-3:hasBeenAwarded untitled-ontology-3:ManOfMatch_Match_101 ;
+                            untitled-ontology-3:isCaptainOf untitled-ontology-3:ChennaiSuperKings ;
+                            untitled-ontology-3:hasAge "36"^^xsd:string ;
+                            untitled-ontology-3:hasFullName "Mahendra Singh Dhoni" .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#ManOfMatch_Match_101
+untitled-ontology-3:ManOfMatch_Match_101 rdf:type owl:NamedIndividual ,
+                                                  untitled-ontology-3:ManOfMatch ;
+                                         untitled-ontology-3:hasTeam untitled-ontology-3:ChennaiSuperKings ,
+                                                                     untitled-ontology-3:IndianCricketTeam ;
+                                         untitled-ontology-3:isAwardedTo untitled-ontology-3:MSDhoni .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Match_101_India_vs_Aus
+untitled-ontology-3:Match_101_India_vs_Aus rdf:type owl:NamedIndividual ,
+                                                    untitled-ontology-3:ODIMatch ;
+                                           untitled-ontology-3:hasAwardName untitled-ontology-3:ManOfMatch_Match_101 ;
+                                           untitled-ontology-3:hasMatchWinner untitled-ontology-3:TeamIndia_Match_101 ;
+                                           untitled-ontology-3:hasParticipatingTeams untitled-ontology-3:TeamIndia_Match_101 ,
+                                                                                     untitled-ontology-3:Team_Australia_Match101 ;
+                                           untitled-ontology-3:hasMatchDate "23-Feb-2019"^^xsd:string ;
+                                           rdfs:comment "This is an indiviual match. All matches playes wil have an individual entity" .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#NewZealand
+untitled-ontology-3:NewZealand rdf:type owl:NamedIndividual ,
+                                        untitled-ontology-3:Countries ;
+                               rdfs:comment "A Country" .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Paine
+untitled-ontology-3:Paine rdf:type owl:NamedIndividual ,
+                                   untitled-ontology-3:WicketKeeper ;
+                          untitled-ontology-3:hasTeam untitled-ontology-3:AustralianCricketTeam ,
+                                                      untitled-ontology-3:SunRisersHyderabad ;
+                          untitled-ontology-3:isCaptainOf untitled-ontology-3:AustralianCricketTeam ;
+                          untitled-ontology-3:hasAge "36"^^xsd:string ;
+                          untitled-ontology-3:hasFullName "Tim Paine"^^xsd:string .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Pakistan
+untitled-ontology-3:Pakistan rdf:type owl:NamedIndividual ,
+                                      untitled-ontology-3:Countries ;
+                             rdfs:comment "A country" .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#PlayerOfTheTournament_101
+untitled-ontology-3:PlayerOfTheTournament_101 rdf:type owl:NamedIndividual ,
+                                                       untitled-ontology-3:PlayerOfTournament ;
+                                              untitled-ontology-3:isAwardedTo untitled-ontology-3:MSDhoni .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#PlayerOfTheYear2019_Award
+untitled-ontology-3:PlayerOfTheYear2019_Award rdf:type owl:NamedIndividual ,
+                                                       untitled-ontology-3:PlayerOfTheYear ;
+                                              untitled-ontology-3:isAwardedTo untitled-ontology-3:MSDhoni .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#RaviShastri
+untitled-ontology-3:RaviShastri rdf:type owl:NamedIndividual ,
+                                         untitled-ontology-3:Coach ;
+                                untitled-ontology-3:isCoachOf untitled-ontology-3:IndianCricketTeam .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Rohit
+untitled-ontology-3:Rohit rdf:type owl:NamedIndividual ,
+                                   untitled-ontology-3:Opener ;
+                          untitled-ontology-3:hasTeam untitled-ontology-3:IndianCricketTeam ,
+                                                      untitled-ontology-3:SunRisersHyderabad ;
+                          untitled-ontology-3:hasAge "29"^^xsd:string ;
+                          untitled-ontology-3:hasFullName "Rohit G sharma"^^xsd:string .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#SSmith
+untitled-ontology-3:SSmith rdf:type owl:NamedIndividual ,
+                                    untitled-ontology-3:MiddleOrder ;
+                           untitled-ontology-3:hasTeam untitled-ontology-3:AustralianCricketTeam ,
+                                                       untitled-ontology-3:ChennaiSuperKings ;
+                           untitled-ontology-3:hasAge "30"^^xsd:string ,
+                                                      "Steven smith"^^xsd:string .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#SouthAfrica
+untitled-ontology-3:SouthAfrica rdf:type owl:NamedIndividual ,
+                                         untitled-ontology-3:Countries ;
+                                rdfs:comment "A Country" .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#SriLanka
+untitled-ontology-3:SriLanka rdf:type owl:NamedIndividual ,
+                                      untitled-ontology-3:Countries ;
+                             rdfs:comment "A Country" .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Starc
+untitled-ontology-3:Starc rdf:type owl:NamedIndividual ,
+                                   untitled-ontology-3:FastBowler ;
+                          untitled-ontology-3:hasTeam untitled-ontology-3:AustralianCricketTeam ,
+                                                      untitled-ontology-3:ChennaiSuperKings ;
+                          untitled-ontology-3:hasAge "28"^^xsd:string ;
+                          untitled-ontology-3:hasFullName "Mictchell Starc"^^xsd:string .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#SunRisersHyderabad
+untitled-ontology-3:SunRisersHyderabad rdf:type owl:NamedIndividual ,
+                                                untitled-ontology-3:FranchiseeTeam ;
+                                       untitled-ontology-3:hasCaptain untitled-ontology-3:Warner ;
+                                       untitled-ontology-3:hasFranchisee untitled-ontology-3:Hyderabad_Franchisee ;
+                                       untitled-ontology-3:hasNation untitled-ontology-3:India ;
+                                       untitled-ontology-3:hasTeamName "Sun Risers Hyderabad"^^xsd:string .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#TeamIndia_Match_101
+untitled-ontology-3:TeamIndia_Match_101 rdf:type owl:NamedIndividual ,
+                                                 untitled-ontology-3:Team ;
+                                        untitled-ontology-3:hasCaptain untitled-ontology-3:Virat ;
+                                        untitled-ontology-3:hasNation untitled-ontology-3:India ;
+                                        rdfs:comment "Indian team for Match_101" .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Team_Australia_Match101
+untitled-ontology-3:Team_Australia_Match101 rdf:type owl:NamedIndividual ,
+                                                     untitled-ontology-3:Team ;
+                                            untitled-ontology-3:hasCaptain untitled-ontology-3:Paine ;
+                                            untitled-ontology-3:hasNation untitled-ontology-3:Australia ;
+                                            rdfs:comment "Australian team for Match_101" .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Tournament_101_Ind_tour_of_Aus
+untitled-ontology-3:Tournament_101_Ind_tour_of_Aus rdf:type owl:NamedIndividual ;
+                                                   untitled-ontology-3:hasMatches untitled-ontology-3:Match_101_India_vs_Aus ;
+                                                   untitled-ontology-3:hasParticipatingTeams untitled-ontology-3:AustralianCricketTeam ,
+                                                                                             untitled-ontology-3:IndianCricketTeam .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Virat
+untitled-ontology-3:Virat rdf:type owl:NamedIndividual ,
+                                   untitled-ontology-3:MiddleOrder ;
+                          untitled-ontology-3:hasTeam untitled-ontology-3:IndianCricketTeam ,
+                                                      untitled-ontology-3:SunRisersHyderabad ;
+                          untitled-ontology-3:isCaptainOf untitled-ontology-3:IndianCricketTeam ;
+                          untitled-ontology-3:hasAge "28"^^xsd:string ;
+                          untitled-ontology-3:hasFullName "Virat King Kohli"^^xsd:string .
+
+
+###  http://www.semanticweb.org/harip/ontologies/2019/1/untitled-ontology-3#Warner
+untitled-ontology-3:Warner rdf:type owl:NamedIndividual ,
+                                    untitled-ontology-3:Opener ;
+                           untitled-ontology-3:hasTeam untitled-ontology-3:AustralianCricketTeam ,
+                                                       untitled-ontology-3:SunRisersHyderabad ;
+                           untitled-ontology-3:isCaptainOf untitled-ontology-3:SunRisersHyderabad ;
+                           untitled-ontology-3:hasFullName "32"^^xsd:string ,
+                                                           "David Warner"^^xsd:string .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( untitled-ontology-3:AdhocTeam
+                untitled-ontology-3:FranchiseeTeam
+                untitled-ontology-3:NationalTeam
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( untitled-ontology-3:AllRounder
+                untitled-ontology-3:Batsman
+                untitled-ontology-3:Bowler
+                untitled-ontology-3:WicketKeeper
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( untitled-ontology-3:Audience
+                untitled-ontology-3:Coach
+                untitled-ontology-3:Commentator
+                untitled-ontology-3:GroundStaff
+                untitled-ontology-3:MatchReferee
+                untitled-ontology-3:TeamSupportStaff
+                untitled-ontology-3:Umpire
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( untitled-ontology-3:Badminton
+                untitled-ontology-3:BasketBall
+                untitled-ontology-3:Boxing
+                untitled-ontology-3:Chess
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( untitled-ontology-3:BilateralSeries
+                untitled-ontology-3:ChampionsTrophy
+                untitled-ontology-3:DometicLeague
+                untitled-ontology-3:FriendlyTournament
+                untitled-ontology-3:MultilateralSeries
+                untitled-ontology-3:TrilateralSeries
+                untitled-ontology-3:WorldCup
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( untitled-ontology-3:Cricket
+                untitled-ontology-3:Soccer
+                untitled-ontology-3:Tennis
+                untitled-ontology-3:TrackEvents
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( untitled-ontology-3:FastBowler
+                untitled-ontology-3:SlowMediumPacer
+                untitled-ontology-3:SpinBowler
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( untitled-ontology-3:Finisher
+                untitled-ontology-3:Floater
+                untitled-ontology-3:MiddleOrder
+                untitled-ontology-3:Opener
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( untitled-ontology-3:FirstUmpire
+                untitled-ontology-3:SecondUmpire
+                untitled-ontology-3:ThirdUmpire
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( untitled-ontology-3:ODIMatch
+                untitled-ontology-3:TestMatch
+                untitled-ontology-3:Twenty20Match
+              )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( untitled-ontology-3:Afghanistan
+                        untitled-ontology-3:Australia
+                        untitled-ontology-3:AustralianCricketSquad
+                        untitled-ontology-3:AustralianCricketTeam
+                        untitled-ontology-3:Bhuvi
+                        untitled-ontology-3:Bumrah
+                        untitled-ontology-3:Canada
+                        untitled-ontology-3:Chahal
+                        untitled-ontology-3:ChennaiSuperKings
+                        untitled-ontology-3:Chennai_Franchisee
+                        untitled-ontology-3:Darren_Lehmann
+                        untitled-ontology-3:Dhawan
+                        untitled-ontology-3:England
+                        untitled-ontology-3:Finch
+                        untitled-ontology-3:Hazlewood
+                        untitled-ontology-3:Hyderabad_Franchisee
+                        untitled-ontology-3:India
+                        untitled-ontology-3:IndianCricketSquad
+                        untitled-ontology-3:IndianCricketTeam
+                        untitled-ontology-3:Lyon
+                        untitled-ontology-3:MSDhoni
+                        untitled-ontology-3:ManOfMatch_Match_101
+                        untitled-ontology-3:Match_101_India_vs_Aus
+                        untitled-ontology-3:NewZealand
+                        untitled-ontology-3:Paine
+                        untitled-ontology-3:Pakistan
+                        untitled-ontology-3:PlayerOfTheTournament_101
+                        untitled-ontology-3:PlayerOfTheYear2019_Award
+                        untitled-ontology-3:RaviShastri
+                        untitled-ontology-3:Rohit
+                        untitled-ontology-3:SSmith
+                        untitled-ontology-3:SouthAfrica
+                        untitled-ontology-3:SriLanka
+                        untitled-ontology-3:Starc
+                        untitled-ontology-3:SunRisersHyderabad
+                        untitled-ontology-3:TeamIndia_Match_101
+                        untitled-ontology-3:Team_Australia_Match101
+                        untitled-ontology-3:Tournament_101_Ind_tour_of_Aus
+                        untitled-ontology-3:Virat
+                        untitled-ontology-3:Warner
+                      )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
